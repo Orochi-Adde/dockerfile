@@ -1,0 +1,21 @@
+name: "Buildx Nodejs Image"
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+      runs-on: ubuntu-latest
+      name: Build Nodejs Image
+      steps:
+          - name: Checkout master
+            uses: actions/checkout@master
+          - name: Build and publish image
+            uses: ilteoood/docker_buildx@master
+            with:
+              publish: true
+              imageName: evinedeng/nodejs
+              dockerFile: nodejs/dockerfile
+              platform: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
+              tag: latest,node14,node14.15,node14.15.1
+              dockerHubUser: ${{ secrets.DOCKER_USERNAME }}
+              dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }}
