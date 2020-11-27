@@ -1,9 +1,9 @@
-FROM python:alpine
+FROM alpine:3.12
 LABEL maintainer="Evine Deng <evinedeng@foxmail.com>"
 ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.bfsu.edu.cn/g' /etc/apk/repositories && \
     apk update -f && \
-    apk --no-cache add -f openssl coreutils git wget curl nano tzdata perl bash && \
+    apk --no-cache add -f openssl coreutils git wget curl nano tzdata perl bash python3 && \
     rm -rf /var/cache/apk/*
 ENV HOME=/root LANGUAGE=en_US.UTF-8 LANG=en_US.UTF-8 LC_ALL=C SHELL=/bin/bash PS1="\u@\h:\w \$ "
 COPY python/entrypoint.sh /entrypoint.sh
