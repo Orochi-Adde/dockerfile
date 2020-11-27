@@ -1,4 +1,4 @@
-name: "Buildx Nodejs Image"
+name: "Buildx Python Image"
 on:
   release:
     types: [published]
@@ -13,9 +13,9 @@ jobs:
             uses: ilteoood/docker_buildx@master
             with:
               publish: true
-              imageName: evinedeng/nodejs
-              dockerFile: nodejs/dockerfile
+              imageName: evinedeng/python
+              dockerFile: python/dockerfile
               platform: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
-              tag: latest,lts,14,14.15,14.15.1
+              tag: latest,3,3.8,3.8.5
               dockerHubUser: ${{ secrets.DOCKER_USERNAME }}
               dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }}
