@@ -1,0 +1,21 @@
+name: "Buildx qBittorrent Image"
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+      runs-on: ubuntu-latest
+      name: Build qBittorrent Image
+      steps:
+          - name: Checkout master
+            uses: actions/checkout@master
+          - name: Build and publish image
+            uses: ilteoood/docker_buildx@master
+            with:
+              publish: true
+              imageName: evinedeng/qbittorrent
+              dockerFile: qbittorrent/dockerfile
+              platform: linux/amd64
+              tag: latest,4.3.0
+              dockerHubUser: ${{ secrets.DOCKER_USERNAME }}
+              dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }}
