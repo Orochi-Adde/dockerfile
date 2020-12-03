@@ -14,7 +14,7 @@ jobs:
             with:
               publish: true
               imageName: evinedeng/nodejs
-              dockerFile: nodejs/dockerfile
+              dockerFile: nodejs/Dockerfile
               platform: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
               tag: latest,lts,14,14.15,14.15.1
               dockerHubUser: ${{ secrets.DOCKER_USERNAME }}
