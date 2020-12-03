@@ -11,8 +11,8 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.bfsu.edu.cn/g' /etc/apk/repositorie
                              curl \
                              nano \
                              tzdata \
-                             perl && \
-    rm -rf /var/cache/apk/*
+                             perl \
+    && rm -rf /var/cache/apk/*
 ENV HOME=/root LANG=zh_CN.UTF-8 SHELL=/bin/bash PS1="\u@\h:\w \$ "
 COPY python/entrypoint.sh /entrypoint.sh
 RUN chmod 777 /entrypoint.sh \
