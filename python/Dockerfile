@@ -18,8 +18,8 @@ COPY python/entrypoint.sh /entrypoint.sh
 RUN chmod 777 /entrypoint.sh \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone \
-    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U \
-    && pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+    && pip config set global.index-url https://mirrors.bfsu.edu.cn/pypi/web/simple \
+    && python -m pip install --upgrade pip
 WORKDIR /root
 VOLUME /root
 ENTRYPOINT /entrypoint.sh
