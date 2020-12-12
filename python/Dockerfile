@@ -6,6 +6,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.bfsu.edu.cn/g' /etc/apk/repositorie
     && apk --no-cache add -f bash \
                              openssl \
                              coreutils \
+                             moreutils \
                              git \
                              wget \
                              curl \
