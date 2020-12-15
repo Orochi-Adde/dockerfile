@@ -1,11 +1,11 @@
-name: "Buildx qBittorrent Image"
+name: "Buildx Tnanko_Scripts Image"
 on:
   release:
     types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build qBittorrent Image
+    name: Build Scripts Image
     steps:
       - name: Checkout master
         uses: actions/checkout@master
@@ -13,9 +13,9 @@ jobs:
         uses: ilteoood/docker_buildx@master
         with:
           publish: true
-          imageName: evinedeng/qbittorrent
-          dockerFile: qbittorrent/Dockerfile
-          platform: linux/amd64
-          tag: latest,4.3.0
+          imageName: evinedeng/tnanko_scripts
+          dockerFile: tnanko_scripts/Dockerfile
+          platform: linux/386,linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
+          tag: latest,3,3.9,3.9.1
           dockerHubUser: ${{ secrets.DOCKER_USERNAME }}
           dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }}
