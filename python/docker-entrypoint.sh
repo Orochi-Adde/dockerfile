@@ -5,7 +5,7 @@ if [ ! -d /root/log ]; then
   mkdir -p /root/log
 fi
 
-crond -L /root/log/crond.log
+crond
 
 if [ -f /root/crontab.list ]; then
   crontab /root/crontab.list
